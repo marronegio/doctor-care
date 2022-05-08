@@ -1,0 +1,449 @@
+/* GERAL */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --primary-color: #00856f;
+  --headline: #212529;
+  --paragraph: #495057;
+
+  --brand-beige: #fffaf1;
+  --brand-light: #dce9e2;
+  --brand-dark: #00453A;
+
+  --bg-light: #f7f9f9;
+
+  --nav-height: 7.2rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.6rem;
+
+  text-align: center;
+
+  background-color: var(--bg-light);
+}
+
+.wrapper {
+  width: 37.5rem;
+  margin-inline: auto;
+  padding-inline: 2.4rem;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+section {
+  padding-block: 10rem;
+}
+
+section header h4 {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  margin-bottom: 1.6rem;
+
+  font-weight: 700;
+  line-height: 150%;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+section header h2 {
+  font-size: 3rem;
+  line-height: 3.9rem;
+  color: var(--headline);
+}
+
+section header h1 {
+  color: var(--headline);
+  font-size: 3.4rem;
+  line-height: 130%;
+  margin-bottom: 2.4rem;
+}
+
+section .content p {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 150%;
+
+  
+  color: var(--paragraph);
+}
+
+.button {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 1.6rem 3.2rem;
+    border-radius: 4rem;
+    margin-bottom: 6rem;
+    text-decoration: none;
+    width: fit-content;
+  
+    color: white;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 700;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6rem;
+
+    transition: 0.2s;
+  }
+
+.button:hover{
+    background-color: var(--brand-dark);
+}
+
+/* NAVIGATION */
+
+nav {
+  display: flex;
+
+  height: var(--nav-height);
+
+  position: fixed;
+  top: 0;
+  width: 100vw;
+
+  z-index: 100;
+}
+
+nav .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav.scroll {
+  background-color: var(--primary-color);
+}
+
+nav.scroll .logo path {
+  fill: white;
+}
+
+nav.scroll button path {
+  stroke: white;
+}
+
+nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* MENU EXPANDED */
+
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+  visibility: hidden;
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.menu-expanded {
+  overflow: hidden;
+}
+
+body.menu-expanded > :not(nav) {
+  visibility: hidden;
+}
+
+.menu {
+  transform: translateX(100%);
+}
+
+body.menu-expanded .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--primary-color);
+
+  width: 100vw;
+  height: 100vh;
+
+  padding-top: var(--nav-height);
+
+  transition: transform 0.3s;
+
+  transform: translateX(0);
+}
+
+.menu ul:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+  margin-top: 6rem;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 31px;
+}
+
+.menu ul li a {
+  color: var(--brand-beige);
+  text-decoration: none;
+}
+
+.menu .button {
+  display: inline-block;
+  padding: 16px 32px;
+
+  background: white;
+  border-radius: 4rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: var(--primary-color);
+
+  margin-top: 4.8rem;
+  margin-bottom: 8rem;
+  border: 1px solid rgba(0, 133, 111,  0);
+
+  transition: background 0.2s;
+
+}
+
+.menu .button:hover {
+    border: 1px solid white;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
+
+body.menu-expanded .logo,
+body.menu-expanded button {
+  position: relative;
+  z-index: 100;
+}
+
+body.menu-expanded .logo path {
+  fill: white;
+}
+
+body.menu-expanded .logo button path {
+  stroke: white;
+}
+
+/* HOME */
+
+#home {
+  padding-top: calc(4.1rem + var(--nav-height));
+}
+
+#home p {
+  font-size: 1.8rem;
+  line-height: 150%;
+  color: var(--paragraph);
+  margin-bottom: 3.2rem;
+}
+
+#home img {
+  width: 26.4rem;
+  display: block;
+  margin-inline: auto;
+  object-position: 0 2rem;
+}
+
+#home .button {
+    margin-inline: auto;
+}
+
+#home::before {
+  content: "";
+  width: 100%;
+  height: calc(108rem + var(--nav-height));
+  background-color: var(--brand-light);
+  display: block;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#home .stats {
+  width: 32.7rem;
+  padding-block: 4rem;
+
+  background-color: var(--brand-beige);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--brand-light);
+  border-radius: 0.6rem;
+
+  margin-inline: auto;
+
+  gap: 6rem;
+}
+
+#home .stat h3 {
+  font-size: 4.8rem;
+  color: var(--headline);
+  line-height: 130%;
+  margin-bottom: 0.4rem;
+}
+
+#home .stat p {
+  color: var(--primary-color);
+  margin: 0;
+}
+
+/* SERVICES */
+
+#services h2 {
+  margin-bottom: 6rem;
+}
+
+#services .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+#services .card {
+  padding: 2.4rem;
+  text-align: left;
+
+  background: white;
+
+  border: 1px solid var(--brand-light);
+  border-radius: 6px;
+}
+
+#services .card h3 {
+  margin-block: 1.6rem;
+}
+
+/* ABOUT */
+
+#about {
+  text-align: left;
+  background-color: var(--brand-beige);
+}
+
+#about h2 {
+  margin-bottom: 2.4rem;
+}
+
+#about .content p {
+    margin-top: 2.4rem;
+    margin-bottom: 6rem;
+}
+
+/* CONTACT */
+
+#contact {
+    text-align: left;
+}
+
+#contact header {
+    margin-bottom: 3.2rem;
+}
+
+#contact ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    margin-bottom: 3.2rem;
+}
+
+#contact ul li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* FOOTER  */
+
+footer {
+    background-color: var(--primary-color);
+    padding-block: 6rem;
+
+    text-align: left;
+    color: white;
+}
+
+footer .logo svg {
+    height: 3.1rem;
+    width: 23.6rem;
+}
+
+footer .logo path {
+    fill: white;
+}
+
+footer .logo {
+    width: fit-content;
+    display: inline-block;
+    margin-bottom: 2.4rem;
+}
+
+footer p {
+    color: var(--brand-beige);
+    line-height: 2;
+    margin-bottom: 3.2rem;
+}
+
+footer .social-links {
+    justify-content: flex-start;
+}
+
+/* BACK TO TOP  */
+
+#backToTopButton {
+    position: fixed;
+    bottom: 1rem;
+    right: 2.5rem;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(100%);
+    transition: 0.2s;
+}
+
+#backToTopButton.show {
+    opacity: 1;
+    transform: translateY(0%);
+    visibility: visible;
+}
